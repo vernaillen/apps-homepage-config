@@ -32,6 +32,8 @@
         icon: https://test.histabuddy.com/avatar-chat.png
 - Monitoring:
     - Grafana:
+        icon: grafana
+        href: https://grafana.apps.vernaillen.dev
         widget:
           type: grafana
           version: 1 # optional, default is 1
