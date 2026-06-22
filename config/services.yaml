@@ -34,8 +34,7 @@
     - Grafana:
         widget:
           type: grafana
-          version: 2 # optional, default is 1
-          alerts: alertmanager # optional, default is grafana
+          version: 1 # optional, default is 1
           url: https://grafana.apps.vernaillen.dev
           username: admin
           password: "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}"

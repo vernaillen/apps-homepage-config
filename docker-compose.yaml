@@ -1,0 +1,13 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest   # base image; mounts shadow any baked config anyway
+    container_name: homepage-dev
+    ports:
+      - "3000:3000"
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: localhost:3000
+    env_file:
+      - .env
+    volumes:
+      - ./config:/app/config
+      - ./images:/app/public/images
