@@ -1,0 +1,15 @@
+- logo:
+    icon: https://vernaillen.dev/images/vernaillen-logo.png
+- greeting:
+    text_size: xl
+    text: Apps by Vernaillen.dev
+- resources:
+    cpu: true
+    memory: true
+    disk: /
+    cputemp: false
+    uptime: true
+    units: metric 
+    refresh: 3000 # optional, in ms
+    diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
+    network: true # optional, uses 'default' if true or specify a network interface name

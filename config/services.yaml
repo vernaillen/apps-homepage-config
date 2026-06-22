@@ -1,0 +1,51 @@
+- Apps on Vercel.com:
+    - AnneleenVernaillen.com:
+        href: https://anneleenvernaillen.com/
+        siteMonitor: https://anneleenvernaillen.com/
+        description: my sister's website, designed by Anneleen, developed with WPNuxt by me
+        icon: https://anneleen.twic.pics/avpics/images/avembleem.svg
+    - Harmonics.be:
+        href: https://harmonics.be/
+        siteMonitor: https://harmonics.be/
+        description: Healing power of sound music & dance
+        icon: https://vernaillen.twic.pics/harmonics.be/images/harmonics_fulllogo300.png?twic=v1/output=webp
+    - JazzZottegem.be:
+        href: https://www.jazzzottegem.be/
+        siteMonitor: https://www.jazzzottegem.be/
+        description: website created with WPNuxt for the local Jazz Festival
+        icon: https://www.jazzzottegem.be/_vercel/image?url=%2Flogojazzzottegem.svg&w=640&q=100
+    - WPNuxt.com:
+        href: https://wpnuxt.com/
+        siteMonitor: https://wpnuxt.com/
+        description: Documentation site for the WPNuxt module
+        icon: si-nuxt
+    - demo.wpnuxt.com:
+        href: https://demo.wpnuxt.com/
+        siteMonitor: https://demo.wpnuxt.com/
+        description: Demo site for the WPNuxt module
+        icon: si-nuxt
+- Apps on Fly.io:
+    - Histabuddy:
+        href: https://test.histabuddy.com/
+        siteMonitor: https://test.histabuddy.com/
+        description: Your guide for a low-histamine life
+        icon: https://test.histabuddy.com/avatar-chat.png
+- Monitoring:
+    - Traefik:
+        icon: traefik
+        widget:
+          type: traefik
+          url: http://coolify-proxy:8080
+    - Netdata:
+        icon: netdata
+        href: https://app.netdata.cloud/spaces/wouter-space-dccx70s/
+        widget:
+          type: netdata
+          url: http://10.0.1.1:19999
+    - Uptimerobot:
+        icon: uptimerobot
+        href: https://status.vernaillen.com/
+        widget:
+          type: uptimerobot
+          url: https://api.uptimerobot.com
+          key: "{{HOMEPAGE_VAR_UPTIMEROBOT_API_KEY}}"

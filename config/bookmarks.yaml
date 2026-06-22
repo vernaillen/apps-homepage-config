@@ -1,0 +1,17 @@
+- About Wouter Vernaillen:
+    - Website:
+        - abbr: WV
+          href: https://vernaillen.dev
+          icon: https://vernaillen.dev/images/vernaillen-logo.png
+    - GitHub:
+        - abbr: GH
+          href: https://github.com/vernaillen
+          icon: mdi-github
+    - LinkedIn:
+        - abbr: LI
+          href: https://www.linkedin.com/in/woutervernaillen/
+          icon: mdi-linkedin
+    - X:
+        - abbr: X
+          href: https://x.com/vernaillen
+          icon: si-x

@@ -1,0 +1,32 @@
+title: apps.vernaillen.dev
+theme: dark
+color: zinc
+layout:
+  About Wouter Vernaillen:
+    style: row
+    columns: 4
+  Apps on Coolify:
+    style: row
+    columns: 4
+    icon: si-coolify
+  Apps on Vercel.com:
+    style: row
+    columns: 4
+    icon: si-vercel
+  Apps on Fly.io:
+    style: row
+    columns: 4
+    icon: si-flyio
+  Monitoring:
+    style: row
+    columns: 2
+    icon: si-monitor
+  Info:
+    style: row
+    columns: 3
+background:
+  image: /images/vernaillen_blur.jpg
+  blur: md     # none / xs / sm / md / lg / xl …
+  brightness: 75
+  saturate: 110
+  opacity: 80
