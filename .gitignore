@@ -1,0 +1,7 @@
+.DS_Store
+.env
+config/kubernetes.yaml
+config/proxmox.yaml
+config/custom.css
+config/custom.js
+config/logs/
