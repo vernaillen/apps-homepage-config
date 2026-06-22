@@ -31,11 +31,14 @@
         description: Your guide for a low-histamine life
         icon: https://test.histabuddy.com/avatar-chat.png
 - Monitoring:
-    - Traefik:
-        icon: traefik
+    - Grafana:
         widget:
-          type: traefik
-          url: http://coolify-proxy:8080
+          type: grafana
+          version: 2 # optional, default is 1
+          alerts: alertmanager # optional, default is grafana
+          url: https://grafana.apps.vernaillen.dev
+          username: admin
+          password: "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}"
     - Netdata:
         icon: netdata
         href: https://app.netdata.cloud/spaces/wouter-space-dccx70s/
@@ -49,3 +52,8 @@
           type: uptimerobot
           url: https://api.uptimerobot.com
           key: "{{HOMEPAGE_VAR_UPTIMEROBOT_API_KEY}}"
+    - Traefik:
+        icon: traefik
+        widget:
+          type: traefik
+          url: http://coolify-proxy:8080

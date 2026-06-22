@@ -21,9 +21,6 @@ layout:
     style: row
     columns: 2
     icon: si-monitor
-  Info:
-    style: row
-    columns: 3
 background:
   image: /images/vernaillen_blur.jpg
   blur: md     # none / xs / sm / md / lg / xl …
