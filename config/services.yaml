@@ -47,13 +47,13 @@
           type: netdata
           url: http://10.0.1.1:19999
     - UptimeKuma:
-        icon: uptimekuma
+        icon: uptime
         href: https://uptimekuma.apps.vernaillen.dev/
         widget:
           type: uptimekuma
           url: https://uptimekuma.apps.vernaillen.dev/
-          slug: statuspageslug
-    - Uptimerobot:
+          slug: all
+    - UptimeRobot:
         icon: uptimerobot
         href: https://status.vernaillen.com/
         widget:
