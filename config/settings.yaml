@@ -5,6 +5,10 @@ layout:
   About Wouter Vernaillen:
     style: row
     columns: 4
+  DevOps on Coolify:
+    style: row
+    columns: 3
+    icon: mdi-tools
   Apps on Coolify:
     style: row
     columns: 4
