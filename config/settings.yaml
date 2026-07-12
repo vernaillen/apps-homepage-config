@@ -19,8 +19,8 @@ layout:
     icon: si-flyio
   Monitoring:
     style: row
-    columns: 2
-    icon: si-monitor
+    columns: 3
+    icon: mdi-monitor-eye
 background:
   image: /images/vernaillen_blur.jpg
   blur: md     # none / xs / sm / md / lg / xl …
