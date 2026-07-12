@@ -31,6 +31,20 @@
         description: Your guide for a low-histamine life
         icon: https://test.histabuddy.com/avatar-chat.png
 - Monitoring:
+    - UptimeKuma:
+        icon: uptimerobot
+        href: https://uptimekuma.apps.vernaillen.dev/
+        widget:
+          type: uptimekuma
+          url: https://uptimekuma.apps.vernaillen.dev/
+          slug: all
+    - UptimeRobot:
+        icon: uptimerobot
+        href: https://status.vernaillen.com/
+        widget:
+          type: uptimerobot
+          url: https://api.uptimerobot.com
+          key: "{{HOMEPAGE_VAR_UPTIMEROBOT_API_KEY}}"
     - Grafana:
         icon: grafana
         href: https://grafana.apps.vernaillen.dev
@@ -46,20 +60,6 @@
         widget:
           type: netdata
           url: http://10.0.1.1:19999
-    - UptimeKuma:
-        icon: uptime
-        href: https://uptimekuma.apps.vernaillen.dev/
-        widget:
-          type: uptimekuma
-          url: https://uptimekuma.apps.vernaillen.dev/
-          slug: all
-    - UptimeRobot:
-        icon: uptimerobot
-        href: https://status.vernaillen.com/
-        widget:
-          type: uptimerobot
-          url: https://api.uptimerobot.com
-          key: "{{HOMEPAGE_VAR_UPTIMEROBOT_API_KEY}}"
     - Traefik:
         icon: traefik
         widget:
