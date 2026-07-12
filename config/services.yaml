@@ -32,7 +32,7 @@
         icon: https://test.histabuddy.com/avatar-chat.png
 - Monitoring:
     - UptimeKuma:
-        icon: uptimerobot
+        icon: uptime-kuma
         href: https://uptimekuma.apps.vernaillen.dev/
         widget:
           type: uptimekuma
