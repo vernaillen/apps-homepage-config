@@ -2,15 +2,15 @@ title: apps.vernaillen.dev
 theme: dark
 color: zinc
 layout:
+  Monitoring:
+    tab: Home
+    style: row
+    columns: 3
+    icon: mdi-monitor-eye
   About Wouter Vernaillen:
     tab: Home
     style: row
     columns: 4
-  Monitoring:
-    tab: Monitoring
-    style: row
-    columns: 3
-    icon: mdi-monitor-eye
   DevOps on Coolify:
     tab: Coolify
     style: row
