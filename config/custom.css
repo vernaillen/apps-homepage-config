@@ -3,3 +3,389 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+
+/* =============================================================
+   vernaillen.dev — theme for gethomepage.dev
+   Drop into your config dir as custom.css (next to settings.yaml).
+
+   Tokens lifted from app/assets/css/main.css in vernaillen.dev:
+     primary  = the `vernaillen` olive-gold ramp
+     surface  = the `masala` warm-neutral ramp
+     bg       = --ui-bg dark, rgb(12 12 13)
+     type     = Public Sans
+   Status colours reuse your own tech-badge palette (nuxt green,
+   angular red), so nothing here is invented.
+
+   Pairs with custom.js (greeting + clock).
+
+   Selectors marked VERIFY are the ones most likely to shift between
+   Homepage versions — inspect and correct the single line rather
+   than fighting the file.
+   ============================================================= */
+
+
+/* --- 0. Typeface -------------------------------------------------
+   Public Sans, matching the site. Mount a directory at
+   /app/public/images and drop the .woff2 files in it; Homepage
+   serves them from /images/<file>.
+
+   Quick test without self-hosting (remove once the files are in place):
+   @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap");
+----------------------------------------------------------------- */
+@font-face {
+  font-family: "Public Sans";
+  src: url("/images/PublicSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url("/images/PublicSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url("/images/PublicSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+
+/* --- 1. Tokens ---------------------------------------------------
+   Gold is the brand and does the identity work: headings, links,
+   active state, service names.
+
+   Numbers are the exception. A dashboard is read for values, and if
+   everything is gold nothing reads first — so live values stay in
+   plain light text and only their state (up / degraded / down)
+   carries colour.
+----------------------------------------------------------------- */
+:root {
+  /* Public Sans for everything; mono reserved for aligned numerals */
+  --v-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --v-mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* vernaillen ramp */
+  --v-gold-300: #d6d090;
+  --v-gold-400: #baaf4e;
+  --v-gold-500: #9c8e1b;
+  --v-gold-soft: rgba(186, 175, 78, 0.10);  /* the pageHero headline wash */
+  --v-gold-line: rgba(186, 175, 78, 0.24);
+
+  /* masala ramp — warm neutrals, never blue-grey */
+  --v-bg:     rgb(12 12 13);
+  --v-panel:  #1a1515;
+  --v-inset:  #292121;
+  --v-border: #332b2b;
+
+  --v-text: #cfcfcf;
+  --v-mute: #b3b3b3;
+  --v-dim:  #666666;
+
+  /* status, from your own tech palette */
+  --v-ok:   #00dc82;   /* nuxt */
+  --v-warn: #baaf4e;
+  --v-down: #dd0031;   /* angular */
+
+  --v-radius: 8px;     /* rounded-lg */
+  --v-radius-sm: 6px;
+}
+
+
+/* --- 2. Base ----------------------------------------------------- */
+body,
+#page_wrapper {
+  font-family: var(--v-sans) !important;
+  background-color: var(--v-bg) !important;
+  color: var(--v-text) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--v-gold-400);
+  color: var(--v-bg);
+}
+
+
+/* --- 3. Header strip ---------------------------------------------
+   Greeting / date / weather / clock, then the resource readouts.
+   Separated from the grid by a hairline, the way the site header is.
+----------------------------------------------------------------- */
+#information-widgets {
+  border-bottom: 1px solid var(--v-border);
+  padding-bottom: 1rem !important;
+  margin-top: 0 !important;
+}
+
+#information-widgets .information-widget-greeting {
+  color: var(--v-gold-400) !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+#information-widgets .information-widget-datetime {
+  color: var(--v-mute) !important;
+}
+
+#information-widgets .information-widget-openmeteo,
+#information-widgets .information-widget-weatherapi,
+#information-widgets .information-widget-weather {
+  color: var(--v-mute) !important;
+}
+
+/* Resource gauges */
+.information-widget-resources,
+.information-widget-resource {
+  background: var(--v-panel) !important;
+  border: 1px solid var(--v-border);
+  border-radius: var(--v-radius);
+  padding: 0.55rem 0.85rem !important;
+}
+
+.information-widget-resources .label,
+.information-widget-resource .label {
+  color: var(--v-dim) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.information-widget-resources .rounded-full,
+.information-widget-resource .rounded-full {
+  border-radius: 999px !important;
+}
+
+.information-widget-resources .bg-theme-500,
+.information-widget-resource .bg-theme-500 {
+  background-color: var(--v-gold-500) !important;
+}
+
+/* Clock injected by custom.js */
+.hud-clock {
+  font-family: var(--v-mono);
+  color: var(--v-gold-400);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+  margin-left: auto;
+  padding-left: 1rem;
+  white-space: nowrap;
+}
+
+
+/* --- 4. Tab bar --------------------------------------------------
+   Straight from your navigationMenu: no chrome, transparent links,
+   4px bottom border marking the active one.
+
+   VERIFY: custom.js tags the container with data-hud="tabs" as a
+   stable hook; the class selectors are belt-and-braces.
+----------------------------------------------------------------- */
+[data-hud="tabs"],
+#myTab {
+  /*display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  border: none;
+  border-bottom: 1px solid var(--v-border);
+  border-radius: var(--v-radius-sm);
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 2rem auto;*/
+}
+
+[data-hud="tabs"] button,
+[data-hud="tabs"] a,
+#myTab button,
+#myTab a {
+  color: var(--v-mute) !important;
+  /*font-family: var(--v-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid transparent !important;
+  border-radius: 0 !important;
+  padding: 0.35rem 0.15rem 0.8rem !important;
+  transition: color 150ms ease, border-color 150ms ease;
+  width: 120px;*/
+}
+
+[data-hud="tabs"] button:hover,
+[data-hud="tabs"] a:hover,
+#myTab button:hover,
+#myTab a:hover {
+  background: var(--v-inset) !important;
+  /*color: var(--v-text) !important;
+  background: transparent !important;*/
+}
+
+[data-hud="tabs"] [aria-selected="true"],
+[data-hud="tabs"] .text-theme-800,
+#myTab [aria-selected="true"] {
+  color: var(--v-gold-400) !important;
+  font-weight: 700;
+  background: var(--v-inset) !important;
+  /*
+  background: transparent !important;
+  border-bottom-color: var(--v-gold-400) !important;
+  box-shadow: none;*/
+}
+
+:is([data-hud="tabs"], #myTab) :is(button, a):focus-visible {
+  /*outline: 2px solid var(--v-gold-400);
+  outline-offset: 3px;
+  border-radius: 2px;*/
+}
+
+
+/* --- 5. Group headers --------------------------------------------
+   The pageHero headline treatment: a soft gold wash behind gold
+   text, rounded. It's the one piece of the site's visual signature
+   that transfers cleanly to a dashboard.
+----------------------------------------------------------------- */
+h2,
+.services-group > div > h2,
+#myservices h2 {
+  font-family: var(--v-sans) !important;
+  font-weight: 600;
+  font-size: 1.2rem !important;
+  color: var(--v-mute) !important;
+  /*
+  color: var(--v-gold-400) !important;
+  background: var(--v-gold-soft);
+  border-radius: var(--v-radius-sm);
+  padding: 0.25rem 0.7rem !important;
+  width: fit-content;
+  letter-spacing: 0;
+  text-transform: none;*/
+}
+
+
+/* --- 6. Service cards --------------------------------------------
+   pageCard: flat warm panel, hairline border, gold on hover. No
+   brackets, no glow — the site doesn't do either.
+----------------------------------------------------------------- */
+.service-card {
+  position: relative;
+  background: var(--v-panel) !important;
+  border: 1px solid var(--v-border) !important;
+  border-radius: var(--v-radius) !important;
+  backdrop-filter: none !important;
+  transition: border-color 150ms ease, transform 150ms ease;
+  margin: 0.5rem 0.25rem!important;
+}
+
+.service-card:hover {
+  border-color: var(--v-gold-500) !important;
+  transform: translateY(-1px);
+}
+
+.service-title,
+.service-card .font-medium {
+  color: var(--v-gold-400) !important;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.service-description {
+  color: var(--v-mute) !important;
+  font-size: 0.78rem !important;
+  font-weight: 400;
+}
+
+
+/* --- 7. Widget blocks --------------------------------------------
+   Values in mono so columns of figures line up; labels in Public
+   Sans, small and quiet. Values stay neutral — colour here means
+   state, not emphasis.
+
+   VERIFY: if your version renders the label ABOVE the value, swap
+   the :first-child and :last-child selectors.
+----------------------------------------------------------------- */
+.service-block {
+  background: var(--v-inset) !important;
+  border: 1px solid transparent;
+  border-radius: var(--v-radius-sm);
+  padding: 0.45rem 0.55rem !important;
+}
+
+.service-block > *:first-child {
+  font-family: var(--v-mono);
+  color: var(--v-text) !important;
+  font-size: 0.92rem !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.service-block > *:last-child {
+  color: var(--v-dim) !important;
+  font-size: 0.6rem !important;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Status */
+.service-ping,
+.status-online {
+  color: var(--v-ok) !important;
+  font-size: 0.6rem !important;
+  font-weight: 600;
+}
+
+.status-offline,
+.status-error {
+  color: var(--v-down) !important;
+}
+
+
+/* --- 8. Bookmarks ------------------------------------------------ */
+.bookmark-text,
+.bookmark-name {
+  font-family: var(--v-sans) !important;
+  font-weight: 600;
+  font-size: 0.82rem !important;
+  color: var(--v-text) !important;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.bookmark-description {
+  color: var(--v-dim) !important;
+}
+
+div.bookmark-icon::before {
+  border-radius: var(--v-radius-sm) !important;
+}
+
+/* Example per-bookmark tint — duplicate per id you define */
+#ops div.bookmark-icon::before {
+  opacity: 0.3;
+  background-color: var(--v-gold-500) !important;
+}
+
+
+/* --- 9. Responsive ------------------------------------------------ */
+@media (max-width: 640px) {
+  [data-hud="tabs"],
+  #myTab {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 1.25rem;
+  }
+
+  .hud-clock {
+    display: none;
+  }
+}
+
+
+/* --- 10. Motion --------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
