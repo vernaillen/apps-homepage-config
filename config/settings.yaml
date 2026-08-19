@@ -3,28 +3,34 @@ theme: dark
 color: zinc
 layout:
   About Wouter Vernaillen:
+    tab: Home
     style: row
     columns: 4
+  Monitoring:
+    tab: Monitoring
+    style: row
+    columns: 3
+    icon: mdi-monitor-eye
   DevOps on Coolify:
+    tab: Coolify
     style: row
     columns: 3
     icon: mdi-tools
   Apps on Coolify:
+    tab: Coolify
     style: row
     columns: 4
     icon: si-coolify
   Apps on Vercel.com:
+    tab: Vercel
     style: row
     columns: 4
     icon: si-vercel
   Apps on Fly.io:
+    tab: Fly.io
     style: row
     columns: 4
     icon: si-flyio
-  Monitoring:
-    style: row
-    columns: 3
-    icon: mdi-monitor-eye
 background:
   image: /images/vernaillen_blur.jpg
   blur: md     # none / xs / sm / md / lg / xl …
