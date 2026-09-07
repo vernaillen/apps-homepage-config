@@ -21,6 +21,11 @@ layout:
     style: row
     columns: 4
     icon: si-coolify
+  Apps on Combell VPS:
+    tab: Combell VPS
+    style: row
+    columns: 4
+    icon: si-combell
   Apps on Vercel.com:
     tab: Vercel
     style: row
