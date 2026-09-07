@@ -1,7 +1,7 @@
-my-docker:
+hetzner-vps:
   host: dockerproxy
   port: 2375
 
-combell:
+combell-vps:
     host: 100.85.116.8
     port: 2375
