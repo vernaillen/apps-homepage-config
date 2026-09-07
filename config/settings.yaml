@@ -11,18 +11,18 @@ layout:
     tab: Home
     style: row
     columns: 4
-  DevOps on Coolify:
-    tab: VPS on Coolify
-    style: row
-    columns: 3
-    icon: mdi-tools
   Apps on Coolify:
-    tab: VPS on Coolify
+    tab: Coolify VPS
     style: row
     columns: 4
     icon: si-coolify
+  DevOps on Coolify:
+    tab: Coolify VPS
+    style: row
+    columns: 3
+    icon: mdi-tools
   WordPress on Combell VPS:
-    tab: VPS on Combell
+    tab: Combell VPS
     style: row
     columns: 4
     icon: si-combell
