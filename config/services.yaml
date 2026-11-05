@@ -45,15 +45,6 @@
           type: uptimerobot
           url: https://api.uptimerobot.com
           key: "{{HOMEPAGE_VAR_UPTIMEROBOT_API_KEY}}"
-    - Grafana:
-        icon: grafana
-        href: https://grafana.apps.vernaillen.dev
-        widget:
-          type: grafana
-          version: 1 # optional, default is 1
-          url: https://grafana.apps.vernaillen.dev
-          username: admin
-          password: "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}"
     - Netdata:
         icon: netdata
         href: https://app.netdata.cloud/spaces/wouter-space-dccx70s/
